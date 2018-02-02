@@ -1,7 +1,7 @@
 # Loader4a
 
 [![Build Status](https://travis-ci.org/Arquisoft/Loader_e4a.svg?branch=master)](https://travis-ci.org/Arquisoft/Loader_e4a)
-
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f2f0d0b009384c8aba7deacb39b7b541)](https://www.codacy.com/app/Llambi/Loader_e4a?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Arquisoft/Loader_e4a&amp;utm_campaign=Badge_Grade)
 
 *Skeleton of Loader module*
 
