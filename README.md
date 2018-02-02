@@ -1,5 +1,8 @@
 # Loader4a
 
+[![Build Status](https://travis-ci.org/Arquisoft/Loader_e4a.svg?branch=master)](https://travis-ci.org/Arquisoft/Loader_e4a)
+
+
 *Skeleton of Loader module*
 
 ## Authors originales
