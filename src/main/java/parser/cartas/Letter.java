@@ -5,8 +5,8 @@ import java.io.IOException;
 
 import com.lowagie.text.DocumentException;
 
-import model.User;
+import model.Agent;
 
 public abstract class Letter {
-		public abstract void createLetter(User user) throws DocumentException, FileNotFoundException, IOException;
+		public abstract void createLetter(Agent user) throws DocumentException, FileNotFoundException, IOException;
 }

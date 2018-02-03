@@ -1,26 +1,27 @@
 package parsertest;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Date;
 
 import org.junit.Test;
 
 import com.lowagie.text.DocumentException;
 
-import model.User;
-import parser.cartas.*;
+import model.Agent;
+import parser.cartas.Letter;
+import parser.cartas.PdfLetter;
+import parser.cartas.TxtLetter;
+import parser.cartas.WordLetter;
 
 public class LetterTest {
 
 	@Test
 	public void creadasCorrectamente() throws FileNotFoundException, DocumentException, IOException {
 		Letter letter = new PdfLetter();
-		Date date = new Date(System.currentTimeMillis());
-		User user1 = new User("Paco", "Francisco", "francisco@gmail.com", date, "C\\Uría", "Español", "87654321P");
+		Agent user1 = new Agent("Paco Francisco", "francisco@gmail.com", "40,3831N 4,0919O", 1, "87654321P");
 		letter.createLetter(user1);
 
 		File file = new File("cartas/pdf/87654321P.pdf");
