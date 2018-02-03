@@ -1,10 +1,8 @@
 package executer;
 
-import static org.junit.Assert.*;
-
+import static org.junit.Assert.assertEquals;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Date;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -26,8 +24,7 @@ public class ExecuterTest {
 		
 		assertEquals(aS, aS2);
 		
-		Date date = new Date(System.currentTimeMillis());
-		Agent user = new Agent("Paco", "Francisco", "francisco@gmail.com", date, "C\\Uría", "Español", "87654321P");
+		Agent user = new Agent("Paco Francisco", "francisco@gmail.com", "40°38′31″N 4°09′19″O", 1, "87654321P");
 		
 		aS.getAF().saveData(user);
 		

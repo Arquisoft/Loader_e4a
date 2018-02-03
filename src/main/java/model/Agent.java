@@ -137,7 +137,7 @@ public class Agent implements Serializable {
 	@Override
 	public String toString() {
 		return "Agent [nombre=" + nombre + ", email=" + email + ", localizacion=" + localizacion + ", nif=" + nif
-				+ ", username=" + username + ", password=" + password + ", type=" + type + "]";
+				+ ", type=" + type + "]";
 	}
 	
 }

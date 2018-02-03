@@ -21,7 +21,7 @@ public class WordLetter extends Letter{
 		File folder = new File("carta/word");
 		folder.mkdir();
 		carta = new FileOutputStream(
-				"cartas/word/" + user.getDNI() + ".docx");
+				"cartas/word/" + user.getNIF() + ".docx");
 		XWPFParagraph paragraph = documento.createParagraph();
 		XWPFRun run = paragraph.createRun();
 		run.setText("Usuario: " + user.getUsername());

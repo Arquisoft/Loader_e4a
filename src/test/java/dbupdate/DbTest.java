@@ -1,11 +1,10 @@
 package dbupdate;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -25,9 +24,8 @@ public class DbTest {
 	@Test
 	public void usuarioYaExistenteDni() throws FileNotFoundException, DocumentException, IOException {
 		ActionSingleton aS = ActionSingleton.getInstance();
-		Date date = new Date(System.currentTimeMillis());
-		Agent user1 = new Agent("Paco", "Francisco", "francisco@gmail.com", date, "C\\Uría", "Español", "87654321P");
-		Agent user2 = new Agent("Paco", "Francisco", "franci@gmail.com", date, "C\\Uría", "Español", "87654321P");
+		Agent user1 = new Agent("Paco Francisco", "francisco@gmail.com", "40,3831N 4,0919O", 1, "87654321P");
+		Agent user2 = new Agent("Paco Franciso", "franci@gmail.com", "40,3831N 40919O", 1, "87654321P");
 
 		aS.getAF().saveData(user1);
 		aS.getAF().saveData(user2);
@@ -46,9 +44,8 @@ public class DbTest {
 	@Test
 	public void usuarioYaExistenteEmail() throws FileNotFoundException, DocumentException, IOException {
 		ActionSingleton aS = ActionSingleton.getInstance();
-		Date date = new Date(System.currentTimeMillis());
-		Agent user1 = new Agent("Paco", "Francisco", "francisco@gmail.com", date, "C\\Uría", "Español", "87654321P");
-		Agent user3 = new Agent("Paco", "Francisco", "francisco@gmail.com", date, "C\\Uría", "Español", "87654353Y");
+		Agent user1 = new Agent("Paco Francisco", "francisco@gmail.com", "40°38′31″N 4°09′19″O", 1, "87654321P");
+		Agent user3 = new Agent("Paco Francisco", "francisco@gmail.com", "40°38′31″N 4°09′19″O", 1, "87654321Y");
 
 		aS.getAF().saveData(user1);
 		aS.getAF().saveData(user3);
@@ -58,7 +55,7 @@ public class DbTest {
 		trx.begin();
 
 		List<Agent> test = UserFinder.findByEmail("francisco@gmail.com");
-		assertEquals(test.get(0).getDNI(), "87654321P");
+		assertEquals(test.get(0).getNIF(), "87654321P");
 
 		trx.commit();
 		mapper.close();
