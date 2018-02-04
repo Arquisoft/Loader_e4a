@@ -32,7 +32,7 @@ public class ExecuterTest {
 		EntityTransaction trx = mapper.getTransaction();
 		trx.begin();
 		
-		Agent user2 = UserFinder.findByEmail("francisco@gmail.com").get(0);
+		Agent user2 = UserFinder.findByID("francisco@gmail.com").get(0);
 		
 		assertEquals(user, user2);
 		

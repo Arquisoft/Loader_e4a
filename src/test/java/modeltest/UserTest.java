@@ -54,7 +54,7 @@ public class UserTest {
 		assertEquals("email@gmail.com", user1.getEmail());
 		assertEquals("43.542467N -5.6690830", user1.getLocalizacion());
 		assertEquals(1, user1.getType());
-		assertEquals("7777777R", user1.getNIF());
+		assertEquals("7777777R", user1.getID());
 		assertEquals(password, user1.getPassword());
 		assertEquals(userName, user1.getUsername());
 		assertEquals(toString, user1.toString());

@@ -20,11 +20,11 @@ public class InsertR implements Insert {
 
 	@Override
 	public List<Agent> findByDNI(String dni) {
-		return UserFinder.findByDNI(dni);
+		return UserFinder.findByID(dni);
 	}
 
 	@Override
 	public List<Agent> findByEmail(String email) {
-		return UserFinder.findByEmail(email);
+		return UserFinder.findByID(email);
 	}
 }
