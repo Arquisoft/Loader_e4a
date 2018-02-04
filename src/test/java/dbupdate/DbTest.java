@@ -34,7 +34,7 @@ public class DbTest {
 		EntityTransaction trx = mapper.getTransaction();
 		trx.begin();
 
-		List<Agent> test = UserFinder.findByDNI("87654321P");
+		List<Agent> test = UserFinder.findByID("87654321P");
 		assertEquals(test.get(0).getEmail(), "francisco@gmail.com");
 
 		trx.commit();
@@ -54,8 +54,8 @@ public class DbTest {
 		EntityTransaction trx = mapper.getTransaction();
 		trx.begin();
 
-		List<Agent> test = UserFinder.findByEmail("francisco@gmail.com");
-		assertEquals(test.get(0).getNIF(), "87654321P");
+		List<Agent> test = UserFinder.findByID("francisco@gmail.com");
+		assertEquals(test.get(0).getID(), "87654321P");
 
 		trx.commit();
 		mapper.close();
@@ -67,7 +67,7 @@ public class DbTest {
 		EntityManager mapper = Jpa.createEntityManager();
 		EntityTransaction trx = mapper.getTransaction();
 		trx.begin();
-		List<Agent> aBorrar = UserFinder.findByDNI("87654321P");
+		List<Agent> aBorrar = UserFinder.findByID("87654321P");
 		Jpa.getManager().remove(aBorrar.get(0));
 		trx.commit();
 		mapper.close();

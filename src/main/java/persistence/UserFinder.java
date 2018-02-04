@@ -6,13 +6,17 @@ import persistence.util.Jpa;
 
 public class UserFinder {
 
-	public static List<Agent> findByDNI(String dni) {
-		return Jpa.getManager().createNamedQuery("User.findByDni", Agent.class).
-				setParameter(1, dni).getResultList();
+	public static List<Agent> findByID(String id) {
+		return Jpa.getManager()
+				.createNamedQuery("Agent.findByID", Agent.class)
+				.setParameter(1, id)
+				.getResultList();
 	}
 
-	public static List<Agent> findByEmail(String email) {
-		return Jpa.getManager().createNamedQuery("User.findByEmail", Agent.class).
-				setParameter(1, email).getResultList();
+	public static List<Agent> findByUsername(String username) {
+		return Jpa.getManager()
+				.createNamedQuery("Agent.findByUsername", Agent.class)
+				.setParameter(1, username)
+				.getResultList();
 	}
 }

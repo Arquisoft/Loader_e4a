@@ -16,7 +16,7 @@ public class Agent implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(unique=true)
-	private String nif;
+	private String id;
 	private String nombre;
 	private String email;
 	private String localizacion;
@@ -24,12 +24,12 @@ public class Agent implements Serializable {
 	private String password;
 	private int type;
 
-	public Agent(String nombre, String email, String localizacion, int type, String nif) {
+	public Agent(String nombre, String email, String localizacion, int type, String id) {
 		setNombre(nombre);
 		setEmail(email);
 		setLocalizacion(localizacion);
 		setType(type);
-		setNIF(nif);
+		setID(id);
 		setUsername(email);
 		generarPassword();
 	}
@@ -77,12 +77,12 @@ public class Agent implements Serializable {
 	Agent() {
 	}
 
-	public String getNIF() {
-		return this.nif;
+	public String getID() {
+		return this.id;
 	}
 
-	private void setNIF(String nif) {
-		this.nif = nif;
+	private void setID(String id) {
+		this.id = id;
 	}
 
 	private void generarPassword() {
@@ -113,7 +113,7 @@ public class Agent implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((nif == null) ? 0 : nif.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -126,17 +126,17 @@ public class Agent implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Agent other = (Agent) obj;
-		if (nif == null) {
-			if (other.nif != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!nif.equals(other.nif))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Agent [nombre=" + nombre + ", email=" + email + ", localizacion=" + localizacion + ", nif=" + nif
+		return "Agent [nombre=" + nombre + ", email=" + email + ", localizacion=" + localizacion + ", nif=" + id
 				+ ", type=" + type + "]";
 	}
 	
