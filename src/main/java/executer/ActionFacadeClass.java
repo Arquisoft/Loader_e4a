@@ -15,6 +15,5 @@ public class ActionFacadeClass implements ActionFacade {
 	public void saveData(Agent user) throws FileNotFoundException, DocumentException, IOException {
 		Insert insert = new InsertP();
 		insert.save(user);
-			
 	}
 }

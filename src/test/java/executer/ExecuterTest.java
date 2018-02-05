@@ -26,7 +26,7 @@ public class ExecuterTest {
 		
 		Agent user = new Agent("Paco Francisco", "francisco@gmail.com", "40°38′31″N 4°09′19″O", 1, "87654321P");
 		
-		aS.getAF().saveData(user);
+		aS.getActionFacade().saveData(user);
 		
 		EntityManager mapper = Jpa.createEntityManager();
 		EntityTransaction trx = mapper.getTransaction();
