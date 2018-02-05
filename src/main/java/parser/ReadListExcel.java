@@ -20,10 +20,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.lowagie.text.DocumentException;
 
+import dbupdate.InsertReader;
 import executer.*;
 import model.Agent;
 
-public class RList implements ReadList {
+public class ReadListExcel implements ReadList {
 	private ActionFacade aF = new ActionFacadeClass();
 	private ArrayList<List<XSSFCell>> allUsers;
 

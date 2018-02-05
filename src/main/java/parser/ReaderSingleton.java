@@ -12,7 +12,7 @@ public class ReaderSingleton {
 	private ReadList loader;
 
 	private ReaderSingleton() {
-		this.loader = new RList();
+		this.loader = new ReadListExcel();
 	}
 
 	public static ReaderSingleton getInstance() {
