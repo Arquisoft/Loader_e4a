@@ -29,7 +29,7 @@ public class ExecuterTest {
 		Date date = new Date(System.currentTimeMillis());
 		User user = new User("Paco", "Francisco", "francisco@gmail.com", date, "C\\Uría", "Español", "87654321P");
 		
-		aS.getAF().saveData(user);
+		aS.getActionFacade().saveData(user);
 		
 		EntityManager mapper = Jpa.createEntityManager();
 		EntityTransaction trx = mapper.getTransaction();

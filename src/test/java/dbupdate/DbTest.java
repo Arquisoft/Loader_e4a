@@ -29,8 +29,8 @@ public class DbTest {
 		User user1 = new User("Paco", "Francisco", "francisco@gmail.com", date, "C\\Uría", "Español", "87654321P");
 		User user2 = new User("Paco", "Francisco", "franci@gmail.com", date, "C\\Uría", "Español", "87654321P");
 
-		aS.getAF().saveData(user1);
-		aS.getAF().saveData(user2);
+		aS.getActionFacade().saveData(user1);
+		aS.getActionFacade().saveData(user2);
 
 		EntityManager mapper = Jpa.createEntityManager();
 		EntityTransaction trx = mapper.getTransaction();
@@ -50,8 +50,8 @@ public class DbTest {
 		User user1 = new User("Paco", "Francisco", "francisco@gmail.com", date, "C\\Uría", "Español", "87654321P");
 		User user3 = new User("Paco", "Francisco", "francisco@gmail.com", date, "C\\Uría", "Español", "87654353Y");
 
-		aS.getAF().saveData(user1);
-		aS.getAF().saveData(user3);
+		aS.getActionFacade().saveData(user1);
+		aS.getActionFacade().saveData(user3);
 
 		EntityManager mapper = Jpa.createEntityManager();
 		EntityTransaction trx = mapper.getTransaction();
