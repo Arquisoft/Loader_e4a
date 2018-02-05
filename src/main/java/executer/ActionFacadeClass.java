@@ -7,14 +7,13 @@ import com.lowagie.text.DocumentException;
 
 import dbupdate.Insert;
 import dbupdate.InsertP;
-import model.User;
+import model.Agent;
 
 public class ActionFacadeClass implements ActionFacade {
 
 	@Override
-	public void saveData(User user) throws FileNotFoundException, DocumentException, IOException {
+	public void saveData(Agent user) throws FileNotFoundException, DocumentException, IOException {
 		Insert insert = new InsertP();
 		insert.save(user);
-			
 	}
 }

@@ -18,7 +18,7 @@ import org.junit.After;
 import org.junit.Test;
 
 import com.lowagie.text.DocumentException;
-import model.User;
+import model.Agent;
 
 public class ParserTest {
 
@@ -152,15 +152,15 @@ public class ParserTest {
 		EntityManager mapper = Jpa.createEntityManager();
 		EntityTransaction trx = mapper.getTransaction();
 		trx.begin();
-		List<User> aBorrar = UserFinder.findByDNI("09940449X");
+		List<Agent> aBorrar = UserFinder.findByID("09940449X");
 		if (!aBorrar.isEmpty())
 			Jpa.getManager().remove(aBorrar.get(0));
 
-		aBorrar = UserFinder.findByDNI("19160962F");
+		aBorrar = UserFinder.findByID("19160962F");
 		if (!aBorrar.isEmpty())
 			Jpa.getManager().remove(aBorrar.get(0));
 
-		aBorrar = UserFinder.findByDNI("90500084Y");
+		aBorrar = UserFinder.findByID("90500084Y");
 		if (!aBorrar.isEmpty())
 			Jpa.getManager().remove(aBorrar.get(0));
 

@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
     http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0">
-    <persistence-unit name="citizensLoader1a">
+    <persistence-unit name="Loader_e4a">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>  
 		<properties>
@@ -14,8 +14,8 @@
 					  value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" 
 					  value="jdbc:mysql://bd.koinsys.es:3306/asw1a_bd" />
-			<property name="javax.persistence.jdbc.user" value="asw1a" />
-			<property name="javax.persistence.jdbc.password" value="loader1a" />
+			<property name="javax.persistence.jdbc.user" value="aswe4a" />
+			<property name="javax.persistence.jdbc.password" value="loadere4a" />
 			<property name="hibernate.dialect" 
 					  value="org.hibernate.dialect.MySQLDialect" />
             <property name="hibernate.show_sql" value="true" />
