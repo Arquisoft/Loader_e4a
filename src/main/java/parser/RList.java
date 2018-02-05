@@ -126,7 +126,7 @@ public class RList implements ReadList {
 		
 		Agent user = new Agent(list.get(0).getStringCellValue(), list.get(1).getStringCellValue(),
 				list.get(2).getStringCellValue(), Integer.valueOf(list.get(4).getStringCellValue()), list.get(3).getStringCellValue());
-		InsertR insert = new InsertR();
+		InsertReader insert = new InsertReader();
 		insert.save(user);
 		// getaF().saveData(user);
 	}

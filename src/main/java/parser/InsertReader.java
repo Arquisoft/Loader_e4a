@@ -11,7 +11,7 @@ import dbupdate.InsertP;
 import model.Agent;
 import persistence.UserFinder;
 
-public class InsertR implements Insert {
+public class InsertReader implements Insert {
 
 	@Override
 	public Agent save(Agent user) throws FileNotFoundException, DocumentException, IOException {
