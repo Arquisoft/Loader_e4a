@@ -24,9 +24,9 @@ public class ExecuterTest {
 		
 		assertEquals(aS, aS2);
 		
-		Agent user = new Agent("Paco Francisco", "francisco@gmail.com", "40°38′31″N 4°09′19″O", 1, "87654321P");
+		Agent user = new Agent("Paco Francisco", "francisco@gmail.com", "40,3831N 4,0919O", 1, "87654321P");
 		
-		aS.getAF().saveData(user);
+		aS.getActionFacade().saveData(user);
 		
 		EntityManager mapper = Jpa.createEntityManager();
 		EntityTransaction trx = mapper.getTransaction();
