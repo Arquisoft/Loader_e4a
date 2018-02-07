@@ -14,10 +14,18 @@ import reportwriter.ReportWriter;
 public class ReaderSingleton {
 	private static ReaderSingleton instance;
 	private ReadList loader;
-	private HashMap<String, Integer> mapa;
+	private static HashMap<String, Integer> mapa = new HashMap<String,Integer>();
 
 	private ReaderSingleton() {
 		this.loader = new ReadListExcel();
+	}
+	
+	public static ReaderSingleton getInstance(String path) {
+		if(mapa.isEmpty()) {
+			leerCSV(path);
+			return getInstance();
+		}
+		return getInstance();
 	}
 
 	public static ReaderSingleton getInstance() {
@@ -35,7 +43,7 @@ public class ReaderSingleton {
 		}
 	}
 	
-	public void leerCSV(String path) {
+	public static void leerCSV(String path) {
 		BufferedReader br = null;
 	      
 	      try {
@@ -47,12 +55,19 @@ public class ReaderSingleton {
 	            mapa.put(fields[1], Integer.parseInt(fields[0]));
 	            line = br.readLine();
 	         }
-	          br.close();
-	         
-	      } catch (IOException e) {
-	    	  System.err.println("No se ha encontrado el archivo csv especificado.");
-			ReportWriter.getInstance().getWriteReport().log(Level.WARNING, "No se ha encontrado el archivo csv");
-	      } 
+	      } catch (IOException ioe) {
+				System.err.println("Problema con la lectura del CSV");
+				ReportWriter.getInstance().getWriteReport().log(Level.WARNING,
+						"Problema con la lectura del CSV");
+	      }finally {
+	    	  if(br!=null) {
+	    			  try {
+						br.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+	    	  }
+	      }
 	}
 	
 	public HashMap<String,Integer> getMapa(){

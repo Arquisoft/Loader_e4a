@@ -25,7 +25,7 @@ import executer.*;
 import model.Agent;
 
 public class ReadListExcel implements ReadList {
-	private ActionFacade aF = new ActionFacadeClass();
+	private ActionFacade actionFacade = new ActionFacadeClass();
 	private ArrayList<List<XSSFCell>> allUsers;
 
 	/**
@@ -99,12 +99,12 @@ public class ReadListExcel implements ReadList {
 		}
 	}
 
-	public ActionFacade getaF() {
-		return aF;
+	public ActionFacade getActionFacade() {
+		return actionFacade;
 	}
 
-	public void setaF(ActionFacade aF) {
-		this.aF = aF;
+	public void setActionFacade(ActionFacade aF) {
+		this.actionFacade = aF;
 	}
 
 	/**

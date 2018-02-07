@@ -25,11 +25,11 @@ public class LoadAgents {
 		else if (args[0].equals("info"))
 			showInfo();
 		else if (args[0].equals("load")) {
-			if (args.length < 2)
+			if (args.length < 3)
 				System.err.println(
 						"La operacion load necesita al menos otro " + "argumento con la ubicacion del fichero");
 			else {
-				for (int i = 1; i <= args.length - 1; i++)
+				for (int i = 2; i <= args.length - 1; i++)
 					ReaderSingleton.getInstance().loadFile(args[i]);
 			}
 		}
