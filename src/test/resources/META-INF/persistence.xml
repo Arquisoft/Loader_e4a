@@ -6,11 +6,12 @@
     <persistence-unit name="Loader_e4a" transaction-type="RESOURCE_LOCAL">
       <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
       <class>org.denevell.tomcat.entities.write.AnotherThing</class>
+      <class>model.Agent</class>
       <properties>
         <property name="javax.persistence.jdbc.driver" 
         	value="org.sqlite.JDBC" />
         <property name="javax.persistence.jdbc.url" 
-        	value="bd/Loader_e4a.db" />
+        	value="jdbc:sqlite:bd/Loader_e4a.db" />
         <property name="eclipselink.logging.level" 
         	value="ALL" />
         <property name="eclipselink.ddl-generation" 
