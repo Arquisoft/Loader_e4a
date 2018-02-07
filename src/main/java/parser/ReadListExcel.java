@@ -20,11 +20,12 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.lowagie.text.DocumentException;
 
+import dbupdate.InsertReader;
 import executer.*;
 import model.Agent;
 
-public class RList implements ReadList {
-	private ActionFacade aF = new ActionFacadeClass();
+public class ReadListExcel implements ReadList {
+	private ActionFacade actionFacade = new ActionFacadeClass();
 	private ArrayList<List<XSSFCell>> allUsers;
 
 	/**
@@ -98,12 +99,12 @@ public class RList implements ReadList {
 		}
 	}
 
-	public ActionFacade getaF() {
-		return aF;
+	public ActionFacade getActionFacade() {
+		return actionFacade;
 	}
 
-	public void setaF(ActionFacade aF) {
-		this.aF = aF;
+	public void setActionFacade(ActionFacade aF) {
+		this.actionFacade = aF;
 	}
 
 	/**
@@ -125,8 +126,10 @@ public class RList implements ReadList {
 		
 		
 		Agent user = new Agent(list.get(0).getStringCellValue(), list.get(1).getStringCellValue(),
-				list.get(2).getStringCellValue(), Integer.valueOf(list.get(4).getStringCellValue()), list.get(3).getStringCellValue());
-		InsertR insert = new InsertR();
+				list.get(2).getStringCellValue(),
+				ReaderSingleton.getInstance().getMapa().get(list.get(3).getStringCellValue()),
+				list.get(4).getStringCellValue());
+		InsertReader insert = new InsertReader();
 		insert.save(user);
 		// getaF().saveData(user);
 	}

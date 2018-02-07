@@ -1,4 +1,4 @@
-package parser;
+package dbupdate;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -6,12 +6,10 @@ import java.util.List;
 
 import com.lowagie.text.DocumentException;
 
-import dbupdate.Insert;
-import dbupdate.InsertP;
 import model.Agent;
 import persistence.UserFinder;
 
-public class InsertR implements Insert {
+public class InsertReader implements Insert {
 
 	@Override
 	public Agent save(Agent user) throws FileNotFoundException, DocumentException, IOException {
