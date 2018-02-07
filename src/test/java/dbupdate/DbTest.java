@@ -25,10 +25,10 @@ public class DbTest {
 	public void usuarioYaExistenteDni() throws FileNotFoundException, DocumentException, IOException {
 		ActionSingleton aS = ActionSingleton.getInstance();
 		Agent user1 = new Agent("Paco Francisco", "francisco@gmail.com", "40,3831N 4,0919O", 1, "87654321P");
-		Agent user2 = new Agent("Paco Franciso", "franci@gmail.com", "40,3831N 40919O", 1, "87654321P");
+		Agent user2 = new Agent("Paco Franciso", "franci@gmail.com", "40,3831N 4,0919O", 1, "87654321P");
 
-		aS.getAF().saveData(user1);
-		aS.getAF().saveData(user2);
+		aS.getActionFacade().saveData(user1);
+		aS.getActionFacade().saveData(user2);
 
 		EntityManager mapper = Jpa.createEntityManager();
 		EntityTransaction trx = mapper.getTransaction();
@@ -44,11 +44,11 @@ public class DbTest {
 	@Test
 	public void usuarioYaExistenteEmail() throws FileNotFoundException, DocumentException, IOException {
 		ActionSingleton aS = ActionSingleton.getInstance();
-		Agent user1 = new Agent("Paco Francisco", "francisco@gmail.com", "40°38′31″N 4°09′19″O", 1, "87654321P");
-		Agent user3 = new Agent("Paco Francisco", "francisco@gmail.com", "40°38′31″N 4°09′19″O", 1, "87654321Y");
+		Agent user1 = new Agent("Paco Francisco", "francisco@gmail.com", "40,3831N 4,0919O", 1, "87654321P");
+		Agent user3 = new Agent("Paco Francisco", "francisco@gmail.com", "40,3831N 4,0919O", 1, "87654321Y");
 
-		aS.getAF().saveData(user1);
-		aS.getAF().saveData(user3);
+		aS.getActionFacade().saveData(user1);
+		aS.getActionFacade().saveData(user3);
 
 		EntityManager mapper = Jpa.createEntityManager();
 		EntityTransaction trx = mapper.getTransaction();
