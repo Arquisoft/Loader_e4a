@@ -54,7 +54,7 @@ public class DbTest {
 		EntityTransaction trx = mapper.getTransaction();
 		trx.begin();
 
-		List<Agent> test = UserFinder.findByID("francisco@gmail.com");
+		List<Agent> test = UserFinder.findByID("87654321P");
 		assertEquals(test.get(0).getID(), "87654321P");
 
 		trx.commit();
