@@ -21,3 +21,26 @@
 * Ivan Casielles Alvarez (UO251063)
 * Mirza Ojeda Vieira (UO251443)
 * Antonio Payá González(UO251065)
+
+## Descripcion
+
+El objetivo de este proyecto es actuar como modulo de carga de agentes para un sistema de incidencias
+
+## Manual de uso
+
+### Crear proyecto en eclipse
+
+1. Clonar el proyecto mediante Git en una carpeta local [![Loader_e4a
+](https://github.com/Arquisoft/Loader_e4a.git)](https://github.com/Arquisoft/Loader_e4a.git).
+2. En esa misma carpeta se debe crear un proyecto desde Eclipse con el mismo nombre que la carpeta clonada. En este caso el proyecto
+ se debe llamar Loader_e4a.
+3. Botón derecho encima del proyecto > Configure > Convert to maven project
+4. Una vez hecho el paso anterior, si no se ha configurado aun correctamente pulsar con el botón derecho en el proyecto > Maven >
+Update Proyect...
+
+### Ejecucion
+
+La aplicacion tiene implementadas las operaciones info, load y help:
+  *  **info**: Muestra informacion relacionada con el proyecto, como los autores
+  *  **load[file]**: Permite cargar un conjunto de ficheros excel con agentes en la base de datos
+  *  **--help**: Muestra el menu de ayuda. Si no se proporcionan parametros a la aplicacion se mostrara este menu
