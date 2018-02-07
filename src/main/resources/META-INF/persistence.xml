@@ -9,17 +9,21 @@
         <exclude-unlisted-classes>false</exclude-unlisted-classes>  
 		<properties>
 			<property name="eclipselink.ddl-generation" 
-					  value="drop-and-create-tables"/>
+					value="drop-and-create-tables"/>
 			<property name="javax.persistence.jdbc.driver" 
-					  value="com.mysql.jdbc.Driver" />
+					value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" 
-					  value="jdbc:mysql://bd.koinsys.es:3306/asw1a_bd" />
-			<property name="javax.persistence.jdbc.user" value="aswe4a" />
-			<property name="javax.persistence.jdbc.password" value="loadere4a" />
+					value="jdbc:mysql://sql2.freemysqlhosting.net:3306/sql2220001" />
+			<property name="javax.persistence.jdbc.user" 
+					value="sql2220001" />
+			<property name="javax.persistence.jdbc.password" 
+					value="eT5%wS6%" />
 			<property name="hibernate.dialect" 
-					  value="org.hibernate.dialect.MySQLDialect" />
-            <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.hbm2ddl.auto" value="create" />
+					value="org.hibernate.dialect.MySQLDialect" />
+            <property name="hibernate.show_sql" 
+            		value="true" />
+            <property name="hibernate.hbm2ddl.auto" 
+            		value="create" />
 		</properties>
         
 	</persistence-unit>
