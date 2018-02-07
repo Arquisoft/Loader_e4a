@@ -147,7 +147,7 @@ public class ParserTest {
 		rS1.loadFile("test.xlsx");
 		assertEquals(rS, rS1);
 	}
-/*
+
 	@After
 	public void deleting() {
 		EntityManager mapper = Jpa.createEntityManager();
@@ -169,5 +169,5 @@ public class ParserTest {
 		mapper.close();
 
 	}
-	*/
+	
 }
