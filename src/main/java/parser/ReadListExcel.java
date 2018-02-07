@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import reportwriter.ReportWriter;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -109,12 +110,8 @@ public class ReadListExcel implements ReadList {
 
 	/**
 	 * Metodo que crea un agente tomando los datos de este de un documento CSV
-	 * formado de la siguite forma: 
-	 * Campo1: nombre 
-	 * Campo2: email 
-	 * Campo3: localizacion 
-	 * Campo4: type 
-	 * Campo5: nif
+	 * formado de la siguite forma: Campo1: nombre Campo2: email Campo3:
+	 * localizacion Campo4: type Campo5: nif
 	 * 
 	 * @param list
 	 *            Lista con los datos de los agentes
@@ -123,12 +120,13 @@ public class ReadListExcel implements ReadList {
 	 * @throws IOException
 	 */
 	private void crearUsuarios(List<XSSFCell> list) throws FileNotFoundException, DocumentException, IOException {
-		
-		
+
+		DataFormatter formatter = new DataFormatter();
+
 		Agent user = new Agent(list.get(0).getStringCellValue(), list.get(1).getStringCellValue(),
 				list.get(2).getStringCellValue(),
 				ReaderSingleton.getInstance().getMapa().get(list.get(3).getStringCellValue()),
-				list.get(4).getStringCellValue());
+				formatter.formatCellValue(list.get(4)));
 		InsertReader insert = new InsertReader();
 		insert.save(user);
 		// getaF().saveData(user);
