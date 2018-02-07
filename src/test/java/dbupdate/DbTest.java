@@ -55,7 +55,7 @@ public class DbTest {
 		trx.begin();
 
 		List<Agent> test = UserFinder.findByID("87654321P");
-		assertEquals(test.get(0).getID(), "87654321P");
+		assertEquals(test.get(0).getID(),"87654321P");
 
 		trx.commit();
 		mapper.close();

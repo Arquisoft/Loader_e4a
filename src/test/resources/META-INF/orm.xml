@@ -7,15 +7,19 @@
     <!-- Aqui van las consultas sql (Finder, en un futuro) -->
     <!-- Ejemplo consulta -->
     <named-query name="Agent.findByID">
-        <query>select a
-        	   from Agent a
-        	   where a.id = ?1</query>
+        <query>
+        	select a
+        	from Agent a
+        	where a.id = ?1
+        </query>
     </named-query>
 
     <named-query name="Agent.findByUsername">
-        <query>select a
-        	   from Agent a
-        	   where a.username = ?1</query>
+        <query>
+        	select a
+        	from Agent a
+        	where a.username = ?1
+       	</query>
     </named-query>
 
 </entity-mappings>
