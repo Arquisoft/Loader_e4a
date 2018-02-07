@@ -18,13 +18,14 @@ import org.junit.After;
 import org.junit.Test;
 
 import com.lowagie.text.DocumentException;
-import model.User;
+import model.Agent;
 
 public class ParserTest {
 
 	@Test
 	public void testLoadExcelExito() throws FileNotFoundException, DocumentException {
-		RList ex = new RList();
+		ReadListExcel ex = new ReadListExcel();
+		ReaderSingleton.getInstance("src/test/resources/test.csv");
 		ex.load("src/test/resources/test.xlsx");
 
 		assertEquals(ex.getAllUsers().size(), 3);
@@ -62,7 +63,7 @@ public class ParserTest {
 
 	@Test(expected = FileNotFoundException.class)
 	public void testLoadExcelFicheroNoEncontrado() throws FileNotFoundException, DocumentException {
-		RList ex = new RList();
+		ReadListExcel ex = new ReadListExcel();
 		ex.load("src/test/resources/fallo.xlsx");
 
 		assertEquals(ex.getAllUsers().size(), 3);
@@ -100,7 +101,7 @@ public class ParserTest {
 
 	@Test(expected = IOException.class)
 	public void testLoadExcelErrorExcel() throws IOException, DocumentException {
-		RList ex = new RList();
+		ReadListExcel ex = new ReadListExcel();
 		ex.load("src/test/resources/vacio.xlsx");
 
 		assertEquals(ex.getAllUsers().size(), 3);
@@ -138,10 +139,10 @@ public class ParserTest {
 
 	@Test
 	public void testReaderSingleton() throws DocumentException {
-		ReaderSingleton rS = ReaderSingleton.getInstance();
+		ReaderSingleton rS = ReaderSingleton.getInstance("test.csv");
 		rS.loadFile("cadenaIncorrecta");
 		rS.loadFile("test.xlsx");
-		ReaderSingleton rS1 = ReaderSingleton.getInstance();
+		ReaderSingleton rS1 = ReaderSingleton.getInstance("test.csv");
 		rS1.loadFile("cadenaIncorrecta");
 		rS1.loadFile("test.xlsx");
 		assertEquals(rS, rS1);
@@ -152,15 +153,15 @@ public class ParserTest {
 		EntityManager mapper = Jpa.createEntityManager();
 		EntityTransaction trx = mapper.getTransaction();
 		trx.begin();
-		List<User> aBorrar = UserFinder.findByDNI("09940449X");
+		List<Agent> aBorrar = UserFinder.findByID("09940449X");
 		if (!aBorrar.isEmpty())
 			Jpa.getManager().remove(aBorrar.get(0));
 
-		aBorrar = UserFinder.findByDNI("19160962F");
+		aBorrar = UserFinder.findByID("19160962F");
 		if (!aBorrar.isEmpty())
 			Jpa.getManager().remove(aBorrar.get(0));
 
-		aBorrar = UserFinder.findByDNI("90500084Y");
+		aBorrar = UserFinder.findByID("90500084Y");
 		if (!aBorrar.isEmpty())
 			Jpa.getManager().remove(aBorrar.get(0));
 
@@ -168,4 +169,5 @@ public class ParserTest {
 		mapper.close();
 
 	}
+	
 }

@@ -1,11 +1,11 @@
 package executer;
 
 public class ActionSingleton {
-	private ActionFacade aF;
+	private ActionFacade actionFacade;
 	private static ActionSingleton instance;
 
 	private ActionSingleton() {
-		this.aF = new ActionFacadeClass();
+		this.actionFacade = new ActionFacadeClass();
 	}
 
 	public static ActionSingleton getInstance() {
@@ -14,7 +14,7 @@ public class ActionSingleton {
 		return instance;
 	}
 
-	public ActionFacade getAF() {
-		return aF;
+	public ActionFacade getActionFacade() {
+		return actionFacade;
 	}
 }
