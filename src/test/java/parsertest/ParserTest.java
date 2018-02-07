@@ -25,6 +25,7 @@ public class ParserTest {
 	@Test
 	public void testLoadExcelExito() throws FileNotFoundException, DocumentException {
 		ReadListExcel ex = new ReadListExcel();
+		ReaderSingleton.getInstance("src/test/resources/test.csv");
 		ex.load("src/test/resources/test.xlsx");
 
 		assertEquals(ex.getAllUsers().size(), 3);
@@ -138,15 +139,15 @@ public class ParserTest {
 
 	@Test
 	public void testReaderSingleton() throws DocumentException {
-		ReaderSingleton rS = ReaderSingleton.getInstance();
+		ReaderSingleton rS = ReaderSingleton.getInstance("test.csv");
 		rS.loadFile("cadenaIncorrecta");
 		rS.loadFile("test.xlsx");
-		ReaderSingleton rS1 = ReaderSingleton.getInstance();
+		ReaderSingleton rS1 = ReaderSingleton.getInstance("test.csv");
 		rS1.loadFile("cadenaIncorrecta");
 		rS1.loadFile("test.xlsx");
 		assertEquals(rS, rS1);
 	}
-
+/*
 	@After
 	public void deleting() {
 		EntityManager mapper = Jpa.createEntityManager();
@@ -168,4 +169,5 @@ public class ParserTest {
 		mapper.close();
 
 	}
+	*/
 }
