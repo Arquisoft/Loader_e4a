@@ -16,7 +16,7 @@ import parser.cartas.Letter;
 import parser.cartas.PdfLetter;
 import parser.cartas.TxtLetter;
 import parser.cartas.WordLetter;
-import persistence.UserFinder;
+import persistence.AgentFinder;
 import persistence.util.Jpa;
 import reportwriter.ReportWriter;
 
@@ -41,11 +41,11 @@ public class InsertAgent implements Insert {
 		EntityTransaction trx = mapper.getTransaction();
 		trx.begin();
 		try {
-			if (!UserFinder.findByID(agent.getID()).isEmpty()) {
+			if (!AgentFinder.findByID(agent.getID()).isEmpty()) {
 				ReportWriter.getInstance().getWriteReport().log(Level.WARNING,
 						"El agente con el dni " + agent.getID() + " ya existe en la base de datos");
 				trx.rollback();
-			} else if (!UserFinder.findByID(agent.getEmail()).isEmpty()) {
+			} else if (!AgentFinder.findByID(agent.getEmail()).isEmpty()) {
 				ReportWriter.getInstance().getWriteReport().log(Level.WARNING,
 						"Ya existe un agente con el email " + agent.getEmail() + " en la base de datos");
 				trx.rollback();
@@ -75,7 +75,7 @@ public class InsertAgent implements Insert {
 	 */
 	@Override
 	public List<Agent> findByDNI(String dni) {
-		return UserFinder.findByID(dni);
+		return AgentFinder.findByID(dni);
 	}
 
 	/* (non-Javadoc)
@@ -83,7 +83,7 @@ public class InsertAgent implements Insert {
 	 */
 	@Override
 	public List<Agent> findByEmail(String email) {
-		return UserFinder.findByID(email);
+		return AgentFinder.findByID(email);
 	}
 	
 	

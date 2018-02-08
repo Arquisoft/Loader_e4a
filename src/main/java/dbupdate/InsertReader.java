@@ -7,7 +7,7 @@ import java.util.List;
 import com.lowagie.text.DocumentException;
 
 import model.Agent;
-import persistence.UserFinder;
+import persistence.AgentFinder;
 
 /**
  * 
@@ -34,7 +34,7 @@ public class InsertReader implements Insert {
 	 */
 	@Override
 	public List<Agent> findByDNI(String dni) {
-		return UserFinder.findByID(dni);
+		return AgentFinder.findByID(dni);
 	}
 
 	/* (non-Javadoc)
@@ -42,6 +42,6 @@ public class InsertReader implements Insert {
 	 */
 	@Override
 	public List<Agent> findByEmail(String email) {
-		return UserFinder.findByID(email);
+		return AgentFinder.findByID(email);
 	}
 }

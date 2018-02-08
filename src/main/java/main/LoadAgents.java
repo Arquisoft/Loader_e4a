@@ -5,15 +5,34 @@ import com.lowagie.text.DocumentException;
 import parser.ReaderSingleton;
 
 /**
- * Main application
+ * La aplicacion actua como modulo de carga de agentes para un sistema de incidencias"
  * 
- * @author 1A1
+ * Autores originales 
  * 
- * @author 4A1
+ * @author Daniel Alba Muñiz (UO245188)
+ * @author Jose Luis Bugallo Gonzalez (UO244702)
+ * @author Ignacio Escribano Burgos (UO227766)
+ * @author Daniel Duque Barrientos (UO245553)
+ * @author Rubén de la Varga Cabero (UO246977)
+ *
+ * Autores de la modificación
+ * 
+ * @author Antonio Paya González(UO251065)
+ * @author Pablo Amorin Triana (UO237060)
+ * @author Hugo Perez Fernandez (UO250708)
+ * @author Ivan Casielles Alvarez (UO251063)
+ * @author Mirza Ojeda Vieira (UO251443)
  *
  */
 public class LoadAgents {
 
+	/**
+	 * 
+	 * @param args Argumentos de entrada del programa. El primero sera la accion a realizar. Podra ser --help, info, o load
+	 * @param args El segundo parametro, en el caso de usarse la opción load sera la localizacion del fichero a cargar.
+	 *					
+	 * @throws DocumentException
+	 */
 	public static void main(String... args) throws DocumentException {
 		final LoadAgents runner = new LoadAgents();
 		runner.run(args);
@@ -35,7 +54,10 @@ public class LoadAgents {
 			}
 		}
 	}
-
+	
+	/**
+	 * Muestra la informacion de la aplicacion
+	 */
 	private void showInfo() {
 		System.out.println("Proyecto Loader 4A");
 		System.out.println("El objetivo de este proyecto es actuar como modulo de carga de"
@@ -50,7 +72,10 @@ public class LoadAgents {
 				+ "https://github.com/Arquisoft/Loader_e4a.git");
 
 	}
-
+	
+	/**
+	 * Muestra la ayuda de la aplicación 
+	 */
 	private void showHelp() {
 		System.out.println("Manual de ayuda para el uso de la aplicacion");
 		System.out.println("La aplicacion tiene implementadas las operaciones info, load y help");

@@ -7,15 +7,25 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * 
+ * Clase que implemeta el Agente. Este representa el actor principal del sistema
+ * 
+ * @author Antonio Payá González(UO251065)
+ * @author Pablo Amorin Triana (UO237060)
+ * @author Hugo Perez Fernandez (UO250708)
+ * @author Ivan Casielles Alvarez (UO251063)
+ * @author Mirza Ojeda Vieira (UO251443)
+ * 
+ *
+ */
 @Entity
 @Table(name = "Agent")
 public class Agent implements Serializable {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	@Id
-	@Column(unique=true)
+	@Column(unique = true)
 	private String id;
 	private String nombre;
 	private String email;
@@ -24,13 +34,21 @@ public class Agent implements Serializable {
 	private String password;
 	private int type;
 
+	/**
+	 * Constructor que recibe el nombre, el email, la localizacion, el tipo y la id del agente
+	 * @param nombre Nombre del agente
+	 * @param email  Email del agente
+	 * @param localizacion Localizacion del agente. Usa el formato de coordenadas de google
+	 * @param type Tipo del agente. Especificado en el archivo maestro.
+	 * @param id Id único del agente
+	 */
 	public Agent(String nombre, String email, String localizacion, int type, String id) {
 		setNombre(nombre);
 		setEmail(email);
 		setLocalizacion(localizacion);
 		setType(type);
 		setID(id);
-		setUsername(email);
+		setUsername(id);
 		generarPassword();
 	}
 
@@ -61,7 +79,7 @@ public class Agent implements Serializable {
 	public String getLocalizacion() {
 		return this.localizacion;
 	}
-	
+
 	private void setLocalizacion(String direccionPostal) {
 		this.localizacion = direccionPostal;
 	}
@@ -108,7 +126,6 @@ public class Agent implements Serializable {
 		return password;
 	}
 
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -139,5 +156,5 @@ public class Agent implements Serializable {
 		return "Agent [nombre=" + nombre + ", email=" + email + ", localizacion=" + localizacion + ", nif=" + id
 				+ ", type=" + type + "]";
 	}
-	
+
 }

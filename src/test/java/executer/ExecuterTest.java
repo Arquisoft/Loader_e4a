@@ -12,7 +12,7 @@ import org.junit.Test;
 import com.lowagie.text.DocumentException;
 
 import model.Agent;
-import persistence.UserFinder;
+import persistence.AgentFinder;
 import persistence.util.Jpa;
 
 public class ExecuterTest {
@@ -32,7 +32,7 @@ public class ExecuterTest {
 		EntityTransaction trx = mapper.getTransaction();
 		trx.begin();
 		
-		Agent user2 = UserFinder.findByID("87654321P").get(0);
+		Agent user2 = AgentFinder.findByID("87654321P").get(0);
 		
 		assertEquals(user, user2);
 		
