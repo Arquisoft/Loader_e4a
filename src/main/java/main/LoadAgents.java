@@ -6,21 +6,26 @@ import parser.ReaderSingleton;
 
 /**
  * 
- *  Aplicacion principal.
- *  
- *  @author Antonio Payá González(UO251065)
- *  @author Pablo Amorin Triana (UO237060)
- *  @author Hugo Perez Fernandez (UO250708)
- *  @author Ivan Casielles Alvarez (UO251063)
- *  @author Mirza Ojeda Vieira (UO251443)
+ * Aplicacion principal.
+ * 
+ * @author Antonio Payá González(UO251065)
+ * @author Pablo Amorin Triana (UO237060)
+ * @author Hugo Perez Fernandez (UO250708)
+ * @author Ivan Casielles Alvarez (UO251063)
+ * @author Mirza Ojeda Vieira (UO251443)
  */
 public class LoadAgents {
 
 	/**
 	 * 
-	 * @param args Argumentos de entrada del programa. El primero sera la accion a realizar. Podra ser --help, info, o load
-	 * @param args El segundo parametro, en el caso de usarse la opción load sera la localizacion del fichero a cargar.
-	 *					
+	 * @param args
+	 *            Argumentos de entrada del programa. El primero sera la accion a
+	 *            realizar. Podra ser --help, info, o load
+	 * @param args
+	 *            El segundo parametro, en el caso de usarse la opción load, sera la
+	 *            localizacion del fichero a csv y el tercer parámetro sería el que
+	 *            se va a cargar.
+	 * 
 	 * @throws DocumentException
 	 */
 	public static void main(String... args) throws DocumentException {
@@ -30,7 +35,9 @@ public class LoadAgents {
 
 	/**
 	 * Ejecuta la aplicacion con los parametros introducidos por consola
-	 * @param args, Parametros necesarios para ejecutar la aplicacion
+	 * 
+	 * @param args,
+	 *            Parametros necesarios para ejecutar la aplicacion
 	 * @throws DocumentException
 	 */
 	private void run(String... args) throws DocumentException {
@@ -50,7 +57,6 @@ public class LoadAgents {
 		}
 	}
 
-
 	/**
 	 * Muestra la informacion del proyecto
 	 */
@@ -68,7 +74,6 @@ public class LoadAgents {
 				+ "https://github.com/Arquisoft/Loader_e4a.git");
 
 	}
-
 
 	/**
 	 * Muestra la ayuda del proyecto
