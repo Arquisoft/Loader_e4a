@@ -5,24 +5,14 @@ import com.lowagie.text.DocumentException;
 import parser.ReaderSingleton;
 
 /**
- * La aplicacion actua como modulo de carga de agentes para un sistema de incidencias"
  * 
- * Autores originales 
- * 
- * @author Daniel Alba Muñiz (UO245188)
- * @author Jose Luis Bugallo Gonzalez (UO244702)
- * @author Ignacio Escribano Burgos (UO227766)
- * @author Daniel Duque Barrientos (UO245553)
- * @author Rubén de la Varga Cabero (UO246977)
- *
- * Autores de la modificación
- * 
- * @author Antonio Paya González(UO251065)
- * @author Pablo Amorin Triana (UO237060)
- * @author Hugo Perez Fernandez (UO250708)
- * @author Ivan Casielles Alvarez (UO251063)
- * @author Mirza Ojeda Vieira (UO251443)
- *
+ *  Aplicacion principal.
+ *  
+ *  @author Antonio Payá González(UO251065)
+ *  @author Pablo Amorin Triana (UO237060)
+ *  @author Hugo Perez Fernandez (UO250708)
+ *  @author Ivan Casielles Alvarez (UO251063)
+ *  @author Mirza Ojeda Vieira (UO251443)
  */
 public class LoadAgents {
 
@@ -38,6 +28,11 @@ public class LoadAgents {
 		runner.run(args);
 	}
 
+	/**
+	 * Ejecuta la aplicacion con los parametros introducidos por consola
+	 * @param args, Parametros necesarios para ejecutar la aplicacion
+	 * @throws DocumentException
+	 */
 	private void run(String... args) throws DocumentException {
 		if (args.length == 0 || args[0].equals("--help"))
 			showHelp();
@@ -54,9 +49,10 @@ public class LoadAgents {
 			}
 		}
 	}
-	
+
+
 	/**
-	 * Muestra la informacion de la aplicacion
+	 * Muestra la informacion del proyecto
 	 */
 	private void showInfo() {
 		System.out.println("Proyecto Loader 4A");
@@ -72,9 +68,10 @@ public class LoadAgents {
 				+ "https://github.com/Arquisoft/Loader_e4a.git");
 
 	}
-	
+
+
 	/**
-	 * Muestra la ayuda de la aplicación 
+	 * Muestra la ayuda del proyecto
 	 */
 	private void showHelp() {
 		System.out.println("Manual de ayuda para el uso de la aplicacion");
