@@ -5,12 +5,14 @@ import com.lowagie.text.DocumentException;
 import parser.ReaderSingleton;
 
 /**
- * Main application
  * 
- * @author 1A1
- * 
- * @author 4A1
- *
+ *  Aplicacion principal.
+ *  
+ *  @author Antonio Payá González(UO251065)
+ *  @author Pablo Amorin Triana (UO237060)
+ *  @author Hugo Perez Fernandez (UO250708)
+ *  @author Ivan Casielles Alvarez (UO251063)
+ *  @author Mirza Ojeda Vieira (UO251443)
  */
 public class LoadAgents {
 
@@ -19,6 +21,11 @@ public class LoadAgents {
 		runner.run(args);
 	}
 
+	/**
+	 * Ejecuta la aplicacion con los parametros introducidos por consola
+	 * @param args, Parametros necesarios para ejecutar la aplicacion
+	 * @throws DocumentException
+	 */
 	private void run(String... args) throws DocumentException {
 		if (args.length == 0 || args[0].equals("--help"))
 			showHelp();
@@ -36,6 +43,9 @@ public class LoadAgents {
 		}
 	}
 
+	/**
+	 * Muestra la informacion del proyecto
+	 */
 	private void showInfo() {
 		System.out.println("Proyecto Loader 4A");
 		System.out.println("El objetivo de este proyecto es actuar como modulo de carga de"
@@ -51,6 +61,9 @@ public class LoadAgents {
 
 	}
 
+	/**
+	 * Muestra la ayuda del proyecto
+	 */
 	private void showHelp() {
 		System.out.println("Manual de ayuda para el uso de la aplicacion");
 		System.out.println("La aplicacion tiene implementadas las operaciones info, load y help");

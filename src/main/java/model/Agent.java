@@ -6,13 +6,21 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/**
+ * 
+ *  Clase que representa a un Agent dentro del modelo
+ *  de dominio
+ *  
+ *  @author Antonio Payá González(UO251065)
+ *  @author Pablo Amorin Triana (UO237060)
+ *  @author Hugo Perez Fernandez (UO250708)
+ *  @author Ivan Casielles Alvarez (UO251063)
+ *  @author Mirza Ojeda Vieira (UO251443)
+ */
 @Entity
 @Table(name = "Agent")
 public class Agent implements Serializable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(unique=true)
@@ -23,7 +31,17 @@ public class Agent implements Serializable {
 	private String username;
 	private String password;
 	private int type;
+	
+	Agent() {}
 
+	/**
+	 * Constructor principal de la clase Agent
+	 * @param nombre, Nombre del Agente
+	 * @param email, Email del Agente
+	 * @param localizacion, Coordenadas del Agente
+	 * @param type, Tipo del Agente
+	 * @param id, Id del Agente
+	 */
 	public Agent(String nombre, String email, String localizacion, int type, String id) {
 		setNombre(nombre);
 		setEmail(email);
@@ -74,9 +92,6 @@ public class Agent implements Serializable {
 		this.type = type;
 	}
 
-	Agent() {
-	}
-
 	public String getID() {
 		return this.id;
 	}
@@ -85,6 +100,9 @@ public class Agent implements Serializable {
 		this.id = id;
 	}
 
+	/**
+	 * Genera una password del agente
+	 */
 	private void generarPassword() {
 		StringBuffer pass = new StringBuffer();
 		int low = 65;
