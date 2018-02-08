@@ -30,34 +30,34 @@ import reportwriter.ReportWriter;
  *  @author Ivan Casielles Alvarez (UO251063)
  *  @author Mirza Ojeda Vieira (UO251443)
  */
-public class InsertP implements Insert {
+public class InsertAgent implements Insert {
 
 	/* (non-Javadoc)
 	 * @see dbupdate.Insert#save
 	 */
 	@Override
-	public Agent save(Agent user) throws FileNotFoundException, DocumentException, IOException {
+	public Agent save(Agent agent) throws FileNotFoundException, DocumentException, IOException {
 		EntityManager mapper = Jpa.createEntityManager();
 		EntityTransaction trx = mapper.getTransaction();
 		trx.begin();
 		try {
-			if (!UserFinder.findByID(user.getID()).isEmpty()) {
+			if (!UserFinder.findByID(agent.getID()).isEmpty()) {
 				ReportWriter.getInstance().getWriteReport().log(Level.WARNING,
-						"El agente con el dni " + user.getID() + " ya existe en la base de datos");
+						"El agente con el dni " + agent.getID() + " ya existe en la base de datos");
 				trx.rollback();
-			} else if (!UserFinder.findByID(user.getEmail()).isEmpty()) {
+			} else if (!UserFinder.findByID(agent.getEmail()).isEmpty()) {
 				ReportWriter.getInstance().getWriteReport().log(Level.WARNING,
-						"Ya existe un agente con el email " + user.getEmail() + " en la base de datos");
+						"Ya existe un agente con el email " + agent.getEmail() + " en la base de datos");
 				trx.rollback();
 			} else {
-				Jpa.getManager().persist(user);
+				Jpa.getManager().persist(agent);
 				trx.commit();
 				Letter letter = new PdfLetter();
-				letter.createLetter(user);
+				letter.createLetter(agent);
 				letter = new TxtLetter();
-				letter.createLetter(user);
+				letter.createLetter(agent);
 				letter = new WordLetter();
-				letter.createLetter(user);
+				letter.createLetter(agent);
 			}
 		} catch (PersistenceException ex) {
 			ReportWriter.getInstance().getWriteReport().log(Level.WARNING, "Error de la BBDD");
@@ -67,7 +67,7 @@ public class InsertP implements Insert {
 			if (mapper.isOpen())
 				mapper.close();
 		}
-		return user;
+		return agent;
 	}
 
 	/* (non-Javadoc)

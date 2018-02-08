@@ -26,7 +26,7 @@ public class InsertReader implements Insert {
 	 */
 	@Override
 	public Agent save(Agent user) throws FileNotFoundException, DocumentException, IOException {
-		return new InsertP().save(user);
+		return new InsertAgent().save(user);
 	}
 
 	/* (non-Javadoc)
