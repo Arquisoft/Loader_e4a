@@ -16,7 +16,7 @@ import com.lowagie.text.DocumentException;
 
 import executer.ActionSingleton;
 import model.Agent;
-import persistence.UserFinder;
+import persistence.AgentFinder;
 import persistence.util.Jpa;
 
 public class DbTest {
@@ -34,7 +34,7 @@ public class DbTest {
 		EntityTransaction trx = mapper.getTransaction();
 		trx.begin();
 
-		List<Agent> test = UserFinder.findByID("87654321P");
+		List<Agent> test = AgentFinder.findByID("87654321P");
 		assertEquals(test.get(0).getEmail(), "francisco@gmail.com");
 
 		trx.commit();
@@ -54,7 +54,7 @@ public class DbTest {
 		EntityTransaction trx = mapper.getTransaction();
 		trx.begin();
 
-		List<Agent> test = UserFinder.findByID("87654321P");
+		List<Agent> test = AgentFinder.findByID("87654321P");
 		assertEquals(test.get(0).getID(),"87654321P");
 
 		trx.commit();
@@ -67,7 +67,7 @@ public class DbTest {
 		EntityManager mapper = Jpa.createEntityManager();
 		EntityTransaction trx = mapper.getTransaction();
 		trx.begin();
-		List<Agent> aBorrar = UserFinder.findByID("87654321P");
+		List<Agent> aBorrar = AgentFinder.findByID("87654321P");
 		Jpa.getManager().remove(aBorrar.get(0));
 		trx.commit();
 		mapper.close();

@@ -25,6 +25,18 @@ import dbupdate.InsertReader;
 import executer.*;
 import model.Agent;
 
+/**
+ * 
+ * Clase que implementa la interfaz {@link parser.ReadList} 
+ * 
+ * @author Antonio Payá González(UO251065)
+ * @author Pablo Amorin Triana (UO237060)
+ * @author Hugo Perez Fernandez (UO250708)
+ * @author Ivan Casielles Alvarez (UO251063)
+ * @author Mirza Ojeda Vieira (UO251443)
+ * 
+ *
+ */
 public class ReadListExcel implements ReadList {
 	private ActionFacade actionFacade = new ActionFacadeClass();
 	private ArrayList<List<XSSFCell>> allUsers;
@@ -35,7 +47,7 @@ public class ReadListExcel implements ReadList {
 	 * leyendo linea por linea(hay un usuario en cada linea): Para cada linea crea
 	 * un objeto User y se lo pasa al metodo cargarDatos del AtionFacade. Si existe
 	 * algun fallo de FORMATO se ignora esa linea y se pasa a la siguiente, ademas
-	 * de escribir dicho error en el log.
+	 * de escribir dicho error en el log.	 
 	 * 
 	 * @param path
 	 *            ruta del fichero
