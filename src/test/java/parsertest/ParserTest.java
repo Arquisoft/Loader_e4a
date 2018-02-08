@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import parser.*;
-import persistence.UserFinder;
+import persistence.AgentFinder;
 import persistence.util.Jpa;
 
 import static org.junit.Assert.*;
@@ -18,13 +18,14 @@ import org.junit.After;
 import org.junit.Test;
 
 import com.lowagie.text.DocumentException;
-import model.User;
+import model.Agent;
 
 public class ParserTest {
 
 	@Test
 	public void testLoadExcelExito() throws FileNotFoundException, DocumentException {
-		RList ex = new RList();
+		ReadListExcel ex = new ReadListExcel();
+		ReaderSingleton.getInstance("src/test/resources/test.csv");
 		ex.load("src/test/resources/test.xlsx");
 
 		assertEquals(ex.getAllUsers().size(), 3);
@@ -39,7 +40,7 @@ public class ParserTest {
 				st.append(list1.get(i).toString() + " ");
 		}
 
-		assertEquals(st.toString(), "Juan Torres Pardo juan@example.com C/ Federico García Lorca 2 Español 90500084Y ");
+		assertEquals(st.toString(), "Juan Torres Pardo juan@example.com 43.522444, -5.685444 90500084Y ");
 
 		st = new StringBuilder();
 
@@ -48,7 +49,7 @@ public class ParserTest {
 				st.append(list2.get(i).toString() + " ");
 		}
 
-		assertEquals(st.toString(), "Luis López Fernando luis@example.com C/ Real Oviedo 2 Español 19160962F ");
+		assertEquals(st.toString(), "Luis López Fernando luis@example.com 43.362595, -5.859159 19160962F ");
 
 		st = new StringBuilder();
 
@@ -57,12 +58,12 @@ public class ParserTest {
 				st.append(list3.get(i).toString() + " ");
 		}
 
-		assertEquals(st.toString(), "Ana Torres Pardo ana@example.com Av. De la Constitución 8 Español 09940449X ");
+		assertEquals(st.toString(), "Sensor 1 sensor@example.com 43.3563238,-5.856012 5345071.0 ");
 	}
 
 	@Test(expected = FileNotFoundException.class)
 	public void testLoadExcelFicheroNoEncontrado() throws FileNotFoundException, DocumentException {
-		RList ex = new RList();
+		ReadListExcel ex = new ReadListExcel();
 		ex.load("src/test/resources/fallo.xlsx");
 
 		assertEquals(ex.getAllUsers().size(), 3);
@@ -100,7 +101,7 @@ public class ParserTest {
 
 	@Test(expected = IOException.class)
 	public void testLoadExcelErrorExcel() throws IOException, DocumentException {
-		RList ex = new RList();
+		ReadListExcel ex = new ReadListExcel();
 		ex.load("src/test/resources/vacio.xlsx");
 
 		assertEquals(ex.getAllUsers().size(), 3);
@@ -138,10 +139,10 @@ public class ParserTest {
 
 	@Test
 	public void testReaderSingleton() throws DocumentException {
-		ReaderSingleton rS = ReaderSingleton.getInstance();
+		ReaderSingleton rS = ReaderSingleton.getInstance("test.csv");
 		rS.loadFile("cadenaIncorrecta");
 		rS.loadFile("test.xlsx");
-		ReaderSingleton rS1 = ReaderSingleton.getInstance();
+		ReaderSingleton rS1 = ReaderSingleton.getInstance("test.csv");
 		rS1.loadFile("cadenaIncorrecta");
 		rS1.loadFile("test.xlsx");
 		assertEquals(rS, rS1);
@@ -152,15 +153,15 @@ public class ParserTest {
 		EntityManager mapper = Jpa.createEntityManager();
 		EntityTransaction trx = mapper.getTransaction();
 		trx.begin();
-		List<User> aBorrar = UserFinder.findByDNI("09940449X");
+		List<Agent> aBorrar = AgentFinder.findByID("09940449X");
 		if (!aBorrar.isEmpty())
 			Jpa.getManager().remove(aBorrar.get(0));
 
-		aBorrar = UserFinder.findByDNI("19160962F");
+		aBorrar = AgentFinder.findByID("19160962F");
 		if (!aBorrar.isEmpty())
 			Jpa.getManager().remove(aBorrar.get(0));
 
-		aBorrar = UserFinder.findByDNI("90500084Y");
+		aBorrar = AgentFinder.findByID("90500084Y");
 		if (!aBorrar.isEmpty())
 			Jpa.getManager().remove(aBorrar.get(0));
 
@@ -168,4 +169,5 @@ public class ParserTest {
 		mapper.close();
 
 	}
+	
 }

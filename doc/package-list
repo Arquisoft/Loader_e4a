@@ -1,0 +1,9 @@
+dbupdate
+executer
+main
+model
+parser
+parser.cartas
+persistence
+persistence.util
+reportwriter

@@ -8,15 +8,30 @@ import com.lowagie.text.DocumentException;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfWriter;
 
-import model.User;
+import model.Agent;
 
-public class PdfLetter extends Letter{
+/**
+ *  Clase que implementa la interfaz {@link executer.ActionFacade} 
+ *  Proporcionando cartas en formato PDF
+ *  
+ *  @author Antonio Payá González(UO251065)
+ *  @author Pablo Amorin Triana (UO237060)
+ *  @author Hugo Perez Fernandez (UO250708)
+ *  @author Ivan Casielles Alvarez (UO251063)
+ *  @author Mirza Ojeda Vieira (UO251443)
+ *
+ */
+public class PdfLetter implements Letter{
 	private Document document;
-	public  void createLetter(User user) throws DocumentException, FileNotFoundException{
+	
+	/* (non-Javadoc)
+	 * @see parser.cartas.Letter#createLetter
+	 */
+	public  void createLetter(Agent user) throws DocumentException, FileNotFoundException{
 		document = null;
 		FileOutputStream letter = null;
 		letter = new FileOutputStream(
-				"cartas/pdf/" + user.getDNI() + ".pdf");
+				"cartas/pdf/" + user.getID() + ".pdf");
 		document = new Document();
 		PdfWriter.getInstance(document, letter);
 		document.open();
