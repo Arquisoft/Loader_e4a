@@ -1,1 +1,0 @@
-START mvn -q exec:java -Dexec.mainClass="main.LoadAgents" -Dexec.args="info"
