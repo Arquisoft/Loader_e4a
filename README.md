@@ -30,8 +30,7 @@ El objetivo de este proyecto es actuar como modulo de carga de agentes para un s
 
 ### Crear proyecto en eclipse
 
-1. Clonar el proyecto mediante Git en una carpeta local [![Loader_e4a
-](https://github.com/Arquisoft/Loader_e4a.git)](https://github.com/Arquisoft/Loader_e4a.git).
+1. Clonar el proyecto mediante Git en una carpeta local [Loader_e4a](https://github.com/Arquisoft/Loader_e4a.git).
 2. Importar el proyecto clonado a Eclipse.
 3. Actualizar dependencias con Maven.
 
