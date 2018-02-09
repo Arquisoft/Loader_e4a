@@ -37,7 +37,15 @@ El objetivo de este proyecto es actuar como modulo de carga de agentes para un s
 
 ### Ejecucion
 
-La aplicacion tiene implementadas las operaciones info, load y help:
-  *  **info**: Muestra informacion relacionada con el proyecto, como los autores
-  *  **load[file]**: Permite cargar un conjunto de ficheros excel con agentes en la base de datos
-  *  **--help**: Muestra el menu de ayuda. Si no se proporcionan parametros a la aplicacion se mostrara este menu
+Para ejecutar la aplicacion se debe ir al directorio *ejecucion* y una vez ahi se dispondra de tres archivos .bat:
+
+* *Help*: Para ver la ayuda de la aplicacion.
+* *Info*: Para ver la informacion sobre la aplicacion.
+* *Test*: Para realizar una ejecucion de la aplicacion.
+
+Ademas para realizar una ejecucion de la aplicacion por uno mismo se debera ejecutar en la linea de comandos la siguiente instruccion:
+
+	mvn -q exec:java -Dexec.mainClass="main.LoadAgents" -Dexec.args="Aqui iran los argumentos a usar"
+	
+	e.j.:mvn -q exec:java -Dexec.mainClass="main.LoadAgents" -Dexec.args="load src/test/resources/test.csv src/test/resources/test.xlsx"
+
