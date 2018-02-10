@@ -45,8 +45,7 @@ public class UserTest {
 	public void testAll() {
 		Agent user1 = new Agent("Dani Duque", "email@gmail.com", "43.542467N -5.6690830", 1, "7777777R");
 
-		String password = user1.getPassword();
-		String userName = user1.getUsername();
+		String password = user1.getPassword();		
 		String toString = "Agent [nombre=Dani Duque, email=email@gmail.com, localizacion=43.542467N -5.6690830, nif=7777777R, type=1]";
 		
 
@@ -55,8 +54,7 @@ public class UserTest {
 		assertEquals("43.542467N -5.6690830", user1.getLocalizacion());
 		assertEquals(1, user1.getType());
 		assertEquals("7777777R", user1.getID());
-		assertEquals(password, user1.getPassword());
-		assertEquals(userName, user1.getUsername());
+		assertEquals(password, user1.getPassword());		
 		assertEquals(toString, user1.toString());
 	}
 

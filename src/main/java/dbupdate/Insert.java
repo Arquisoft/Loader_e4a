@@ -38,10 +38,10 @@ public interface Insert {
 
 	/**
 	 * Devuelve una lista de Agentes con dni igual al introducido por parametro
-	 * @param dni, DNI del/los agentes a buscar
+	 * @param ID, ID del/los agentes a buscar
 	 * @return List<Agent>, lista de agentes
 	 */
-	List<Agent> findByDNI(String dni);
+	List<Agent> findByID(String id);
 
 	/**
 	 * Devuelve una lista de Agentes con email igual al introducido por parametro

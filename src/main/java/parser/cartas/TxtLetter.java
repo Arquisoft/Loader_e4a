@@ -25,7 +25,7 @@ public class TxtLetter implements Letter{
 	public void createLetter(Agent user) throws IOException{
 		File letter = new File("cartas/txt/" + user.getID() + ".txt");
 		writer = new FileWriter(letter);
-		writer.write("Usuario: " + user.getUsername() + "\n" + "Password: "
+		writer.write("Usuario: " + user.getID() + "\n" + "Password: "
 				+ user.getPassword());
 	}
 }

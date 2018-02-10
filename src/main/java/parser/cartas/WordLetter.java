@@ -36,7 +36,7 @@ public class WordLetter implements Letter{
 				"cartas/word/" + user.getID() + ".docx");
 		XWPFParagraph paragraph = documento.createParagraph();
 		XWPFRun run = paragraph.createRun();
-		run.setText("Usuario: " + user.getUsername());
+		run.setText("Usuario: " + user.getID());
 		run.addBreak();
 		run.setText("Password: " + user.getPassword());
 		documento.write(carta);

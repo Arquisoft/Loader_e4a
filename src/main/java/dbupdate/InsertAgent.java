@@ -74,7 +74,7 @@ public class InsertAgent implements Insert {
 	 * @see dbupdate.Insert#findByDNI
 	 */
 	@Override
-	public List<Agent> findByDNI(String dni) {
+	public List<Agent> findByID(String dni) {
 		return AgentFinder.findByID(dni);
 	}
 

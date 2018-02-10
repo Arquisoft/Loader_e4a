@@ -30,8 +30,7 @@ public class Agent implements Serializable {
 	private String id;
 	private String nombre;
 	private String email;
-	private String localizacion;
-	private String username;
+	private String localizacion;	
 	private String password;
 	private int type;
 	
@@ -50,8 +49,7 @@ public class Agent implements Serializable {
 		setEmail(email);
 		setLocalizacion(localizacion);
 		setType(type);
-		setID(id);
-		setUsername(id);
+		setID(id);		
 		generarPassword();
 	}
 
@@ -59,10 +57,7 @@ public class Agent implements Serializable {
 		this.password = password;
 	}
 
-	private void setUsername(String username) {
-		this.username = username;
-	}
-
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -121,9 +116,7 @@ public class Agent implements Serializable {
 		setPassword(pass.toString());
 	}
 
-	public String getUsername() {
-		return username;
-	}
+	
 
 	public String getPassword() {
 		return password;

@@ -35,7 +35,7 @@ public class PdfLetter implements Letter{
 		document = new Document();
 		PdfWriter.getInstance(document, letter);
 		document.open();
-		document.add(new Paragraph("Usuario: " + user.getUsername()
+		document.add(new Paragraph("Usuario: " + user.getID()
 				+ "\n Password: " + user.getPassword()));
 		document.close();
 	}
